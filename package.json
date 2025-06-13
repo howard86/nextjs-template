@@ -54,7 +54,7 @@
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.5",
     "framer-motion": "^10.12.17",
-    "next": "^13.4.12",
+    "next": "^15.4.0",
     "next-api-handler": "^0.4.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
