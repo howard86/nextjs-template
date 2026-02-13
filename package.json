@@ -73,7 +73,7 @@
     "@types/react-redux": "^7.1.25",
     "@types/testing-library__jest-dom": "^5.14.9",
     "@types/webpack-env": "^1.18.1",
-    "eslint": "^8.47.0",
+    "eslint": "^10.0.0",
     "eslint-config-howardism": "^0.1.0",
     "graphql": "^16.8.1",
     "husky": "^8.0.3",
