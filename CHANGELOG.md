@@ -7,6 +7,17 @@
 
 
 
+## [2.0.0](https://github.com/howard86/nextjs-template/compare/v1.7.2...v2.0.0) (2026-07-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate template to Bun and Next.js 16
+
+### Features
+
+* migrate template to Bun and Next.js 16 ([2864136](https://github.com/howard86/nextjs-template/commit/2864136fceed451f0fbf7bb1cb1f222b8bf51d34))
+
 ## [1.7.1](https://github.com/Howard86/nextjs-template/compare/v1.7.0...v1.7.1) (2022-08-27)
 
 
@@ -45,6 +56,3 @@
 ### Bug Fixes
 
 * update jest config ([9dc7638](https://github.com/Howard86/nextjs-template/commit/9dc7638f60698b45167c51063b5d77506b7616e6))
-
-
-
