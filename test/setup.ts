@@ -1,5 +1,6 @@
 import { afterAll, afterEach, beforeAll, expect } from "bun:test";
 import { GlobalRegistrator } from "@happy-dom/global-registrator";
+// biome-ignore lint/performance/noNamespaceImport: expect.extend requires the matcher map.
 import * as matchers from "@testing-library/jest-dom/matchers";
 import { cleanup } from "@testing-library/react";
 

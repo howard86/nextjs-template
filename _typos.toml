@@ -1,0 +1,9 @@
+[files]
+extend-exclude = [
+  "bun.lock",
+  "CHANGELOG.md",
+  "node_modules",
+  ".next",
+  "coverage",
+  "public/mockServiceWorker.js",
+]

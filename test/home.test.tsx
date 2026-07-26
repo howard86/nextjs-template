@@ -5,6 +5,8 @@ import { metadata } from "@/app/layout";
 import Home from "@/app/page";
 import { appRender } from "../test-utils";
 
+const HOME_HEADING = /welcome to next\.js!/i;
+
 describe("home", () => {
   test("preserves the home page and mocked API flow", async () => {
     appRender(<Home />);
@@ -13,10 +15,12 @@ describe("home", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /welcome to next\.js!/i,
+        name: HOME_HEADING,
       })
     ).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute("alt", "Vercel Logo");
-    expect(await screen.findByText("MOCK_NAME", { exact: false })).toBeVisible();
+    expect(
+      await screen.findByText("MOCK_NAME", { exact: false })
+    ).toBeVisible();
   });
 });

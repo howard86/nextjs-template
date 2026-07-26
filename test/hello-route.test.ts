@@ -8,10 +8,10 @@ test("GET /api/hello preserves the success envelope", async () => {
 
   expect(response.status).toBe(200);
   expect(body).toMatchObject({
-    success: true,
     data: {
       name: "John Doe",
     },
+    success: true,
   });
   expect(body.data.timestamp).toBeNumber();
 });

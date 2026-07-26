@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { useRef } from "react";
 import { Provider as ReduxProvider } from "react-redux";
 
-import { makeStore, type AppStore } from "@/common/redux/store";
+import { type AppStore, makeStore } from "@/common/redux/store";
 import { system } from "@/common/theme";
 
 export function Providers({ children }: { children: ReactNode }) {
