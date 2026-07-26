@@ -1,6 +1,6 @@
 {
   "name": "nextjs-template",
-  "version": "1.7.2",
+  "version": "2.0.0",
   "description": "Opinionated Next.js template configured with TypeScript, Chakra UI, Redux Toolkit and other devtools",
   "repository": {
     "type": "git",
