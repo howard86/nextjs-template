@@ -1,15 +1,17 @@
-import { rest } from 'msw'
+import { HttpResponse, http } from "msw";
 
-import { generateResponseResolver } from './utils'
+import type { HelloResponse } from "@/app/api/hello/route";
 
 const handlers = [
-  rest.get(
-    '/api/hello',
-    generateResponseResolver<Local.HelloApi>({
-      name: 'MOCK_NAME',
-      timestamp: Date.now(),
+  http.get("*/api/hello", () =>
+    HttpResponse.json<HelloResponse>({
+      data: {
+        name: "MOCK_NAME",
+        timestamp: Date.now(),
+      },
+      success: true,
     })
   ),
-]
+];
 
-export default handlers
+export default handlers;

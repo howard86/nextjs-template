@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated MSW browser worker"
+paths = ['''^public/mockServiceWorker\.js$''']
