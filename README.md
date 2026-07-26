@@ -1,55 +1,89 @@
 # Next.js Template
 
-This is a **highly** opinionated [Next.js](https://nextjs.org/) template bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+An opinionated [Next.js 16](https://nextjs.org/) App Router template running on
+[Bun 1.3.14](https://bun.sh/), with React 19, TypeScript, Chakra UI 3, Redux
+Toolkit, RTK Query, and Mock Service Worker.
 
-Shipped with following developer tools:
+## Requirements
 
-### Production dependencies
+- Bun 1.3.14
 
-1. [Chakra UI](https://chakra-ui.com)
-2. [Emotion](https://emotion.sh)
-3. [Framer Motion](https://www.framer.com/motion/)
-4. [Redux Toolkit](https://redux-toolkit.js.org)
-5. [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
+The package manager version is pinned in `package.json` and the dependency
+graph is committed in `bun.lock`.
 
-### Development dependencies
-
-1. [TypeScript](https://www.typescriptlang.org/)
-2. [Jest](https://jestjs.io)
-3. [ESLint](https://eslint.org/) with [Airbnb config](https://github.com/iamturns/eslint-config-airbnb-typescript)
-4. [Prettier](https://prettier.io/)
-5. Pre-commit & pre-push git hooks powered by [lint-staged](https://github.com/okonet/lint-staged) and [husky](https://typicode.github.io/husky/#/)
-6. [Commitlint](https://commitlint.js.org/#/)
-7. [Mock Service Worker](https://mswjs.io)
-
-## Getting Started
-
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Application routes live
+under `src/app` and update as you edit them.
 
-You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file.
+The template keeps these public routes:
 
-## Learn More
+- `/` — home page
+- `/new-page` — example page
+- `/api/hello` — route handler returning
+  `{ success: true, data: { name, timestamp } }`
 
-To learn more about Next.js, take a look at the following resources:
+## Commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+bun run dev          # start the development server
+bun run build        # create a production build
+bun run start        # serve the production build
+bun run analyze      # analyze the production bundle
+bun test             # run the Bun Test suite
+bun test --coverage  # run tests with coverage
+bun run check        # run Ultracite checks
+bun run typecheck    # check TypeScript
+bun run knip         # find unused files, exports, and dependencies
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Next.js commands run through Bun locally and in CI. Managed deployment
+platforms such as Vercel remain platform-controlled.
 
-## Deploy on Vercel
+## Quality workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Before opening a pull request, run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+bun install --frozen-lockfile
+bun run check
+bun run typecheck
+bun run knip
+bun test --coverage
+bun run build
+typos
+bun outdated
+```
+
+Husky and lint-staged apply the relevant checks to commits. CI repeats the
+repository checks and build. Run gitleaks against both staged changes and the
+`main..HEAD` commit range before publishing. Dependabot groups weekly Bun and
+GitHub Actions updates, while Release Please prepares releases from
+Conventional Commits.
+
+TypeScript 6.0.3 is intentionally pinned for now. TypeScript 7 remains
+excluded until Next.js 16 supports it without an experimental fallback.
+
+## Stack notes
+
+- Chakra UI provides the light-only purple design system.
+- Redux providers create a store per provider instance; RTK Query remains
+  available for data fetching.
+- Bun Test uses Testing Library, happy-dom, jest-dom matchers, and MSW 2.
+- Bundle analysis uses Next.js `experimental-analyze`; no webpack analyzer is
+  required.
+
+## Learn more
+
+- [Next.js documentation](https://nextjs.org/docs)
+- [Next.js 16 upgrade guide](https://nextjs.org/docs/app/guides/upgrading/version-16)
+- [Bun with Next.js](https://bun.com/docs/guides/ecosystem/nextjs)
+- [Chakra UI v3 migration guide](https://chakra-ui.com/docs/get-started/migration)
 
 ## License
 
