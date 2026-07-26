@@ -1,16 +1,16 @@
-import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react'
+import {
+  createSystem,
+  defaultConfig,
+  defineConfig,
+} from "@chakra-ui/react";
 
-import styles from './styles'
-
-const theme = extendTheme(
-  {
-    styles,
-    config: {
-      initialColorMode: 'light',
-      useSystemColorMode: false,
+const config = defineConfig({
+  globalCss: {
+    "html, body": {
+      minHeight: "100%",
+      colorPalette: "purple",
     },
   },
-  withDefaultColorScheme({ colorScheme: 'purple' })
-)
+});
 
-export default theme
+export const system = createSystem(defaultConfig, config);

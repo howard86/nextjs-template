@@ -1,15 +1,12 @@
-import { SuccessApiResponse } from 'next-api-handler'
-
-import { isDev } from '@/common/config'
-import localApi from '@/common/services/local'
+import type { HelloResponse } from "@/app/api/hello/route";
+import localApi from "@/common/services/local";
 
 export const nameApi = localApi.injectEndpoints({
-  overrideExisting: isDev,
   endpoints: (builder) => ({
-    getName: builder.query<SuccessApiResponse<Local.HelloApi>, void>({
-      query: () => '/hello',
+    getName: builder.query<HelloResponse, void>({
+      query: () => "/hello",
     }),
   }),
-})
+});
 
-export const { useGetNameQuery } = nameApi
+export const { useGetNameQuery } = nameApi;
